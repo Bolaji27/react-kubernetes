@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysound-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mysound
+  template:
+    metadata:
+      labels:
+        app: mysound
+    spec:
+      containers:
+        - name: mysound
+          image: 669076482055.dkr.ecr.eu-west-2.amazonaws.com/mysound:1.0
+          ports:
+            - containerPort: 80
